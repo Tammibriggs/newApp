@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
+import './index.css';
+import Button from "../Button";
+import Table from "../Table";
+import Search from "../Search";
 
 
 const DEFAULT_QUERY = 'redux';
@@ -83,10 +86,10 @@ class App extends Component {
 
    onDismiss(id) {
       const { searchKey, results } = this.state;
-      const { page } = results[searchKey];
+      const { page, hits } = results[searchKey];
 
       const isNotId = item => item.objectID !== id;
-      const updatedHits = this.state.result.hits.filter(isNotId);
+      const updatedHits = hits.filter(isNotId);
       this.setState({
          results: {
             ...results,
@@ -118,7 +121,7 @@ class App extends Component {
 
       return (
          <div className="page">
-            <div className="interactions">
+            <div className="page__center">
                <Search
                   value={searchTerm}
                   onChange={this.onSearchChange}
@@ -128,7 +131,7 @@ class App extends Component {
                </Search>
             </div>
             { error
-               ? <div className="interactions">
+               ? <div className="page__center">
                   <p>Something went wrong.</p>
                </div>
                : <Table
@@ -136,7 +139,7 @@ class App extends Component {
                   onDismiss={this.onDismiss}
                />
             }
-            <div className="interactions">
+            <div className="page__center">
             <Button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
                   More
                </Button>
@@ -145,65 +148,5 @@ class App extends Component {
       );
    }
 }
-
-
-const Search = ({
-      value,
-      onChange,
-      onSubmit,
-      children
-   }) =>
-      <form onSubmit={onSubmit}>
-         <input
-         type="text"
-         value={value}
-         onChange={onChange}
-      />
-         <button type="submit">
-            {children}
-         </button>
-      </form>
-
-
-const Table = ({ list, onDismiss }) =>
-   <div className="table">
-      {list.map(item =>
-         <div key={item.objectID} className="table-row">
-            <span style={{ width: '40%' }}>
-               <a href={item.url}>{item.title}</a>
-            </span>
-            <span style={{ width: '30%' }}>
-               {item.author}
-            </span>
-            <span style={{ width: '10%' }}>
-               {item.num_comments}
-            </span>
-            <span style={{ width: '10%' }}>
-               {item.points}
-            </span>
-            <span style={{ width: '10%' }}>
-               <Button
-                  onClick={() => onDismiss(item.objectID)}
-                  className="button-inline"
-                  >
-                  Dismiss
-               </Button>
-            </span>
-         </div>
-      )}
-   </div>
-
-
-const Button = ({onClick, className = '', children,}) =>
-
-  <button
-    onClick={onClick}
-    className={className}
-    type="button"
-  >
-    {children}
-  </button>
-
-
 
 export default App;
