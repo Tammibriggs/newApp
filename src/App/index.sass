@@ -1,0 +1,33 @@
+@import "../variables"
+
+.wrapper
+    width: 90%
+    margin: 0 auto
+    max-width: 1000px
+
+.page
+    text-align: center
+    margin-bottom: 20px
+
+    .page__intro-search
+        display: grid
+        grid-template-rows: 450px
+        grid-gap: 20px
+    
+    .page__button
+        button
+            box-shadow: 0 0 4px $lightGray5
+            &:hover
+                background-color: $lightGray3
+
+@media (min-width: 550px )
+    .page
+        .page__intro-search
+            grid-template-rows: 350px
+
+        .page__error
+            margin-top: 40px
+
+        .page__button
+            button
+                width: 20%

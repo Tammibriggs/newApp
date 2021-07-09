@@ -1,0 +1,88 @@
+@import "../mixins"
+@import "../variables"
+
+.table
+   margin-top: 20px
+
+   .table__row
+      width: calc(90% - 20px)
+      background-color: white
+      text-align: left
+      @include flex(center, column)
+      align-items: flex-start
+      margin-bottom: 20px
+      margin-right: auto
+      margin-left: auto
+      border-radius: 10px
+      padding: 20px   
+        
+      span
+         line-height: 30px 
+         font-size: 16px
+         
+         .MuiSvgIcon-root
+            fill: $darkGray4
+            vertical-align: middle
+            margin-right: 5px
+            font-size: 1.5em
+
+      .table__row__link
+         margin-bottom: 10px
+         a
+            font-size: 18px
+            font-weight: 600
+
+      .table__row__author
+         font-size: 14px 
+         color: $darkGray2
+         font-weight: 500
+      
+      .table__row__comment
+         color: $darkGray3
+
+         span
+            color: $darkGray2
+            font-weight: 500
+
+      .table__row__points
+         color: $darkGray3
+
+         span
+            color: $darkGray2
+            font-weight: 500
+      
+      .table__row__buttons
+         width: 100%
+         @include flex(space-between, row)
+         margin-top: 20px
+         text-align: right
+          
+         a
+            padding: 0.3em 0.5em 0.3em 0.5em
+            background-color: $darkGray1
+            text-align: center
+            border-radius: 5px
+            color: $lightGray1
+
+         button 
+            border: unset
+            color: hsl(350, 100%, 70%)
+            &:hover
+               background-color: hsl(350, 100%, 70%)
+               color: $lightGray1
+
+         
+@media (min-width: 550px)
+   .table
+      position: relative
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-row-gap: 20px
+      grid-column-gap: 5px
+      margin-bottom: 20px
+
+      .table__row
+         flex-basis: 40%
+         min-height: 230px
+         justify-content: space-around
+         margin: unset

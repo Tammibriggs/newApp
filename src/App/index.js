@@ -3,11 +3,12 @@ import './index.css';
 import Button from "../Button";
 import Table from "../Table";
 import Search from "../Search";
+import Intro from "../Intro";
 
 
 const DEFAULT_QUERY = 'redux';
 const PATH_BASE = 'https://hn.algolia.com/api/v1';
-const DEFAULT_HPP = '100';
+const DEFAULT_HPP = '10';
 const PATH_SEARCH = '/search';
 const PARAM_SEARCH = 'query=';
 const PARAM_PAGE = 'page=';
@@ -121,17 +122,20 @@ class App extends Component {
 
       return (
          <div className="page">
-            <div className="page__center">
-               <Search
-                  value={searchTerm}
-                  onChange={this.onSearchChange}
-                  onSubmit={this.onSearchSubmit}
-                  >
-                  Search
-               </Search>
+            <div >
+               <div className="page__intro-search">
+                  <Intro/>
+                  <Search
+                     value={searchTerm}
+                     onChange={this.onSearchChange}
+                     onSubmit={this.onSearchSubmit}
+                     >
+                     Search
+                  </Search>
+               </div>
             </div>
             { error
-               ? <div className="page__center">
+               ? <div class="page__error">
                   <p>Something went wrong.</p>
                </div>
                : <Table
@@ -139,12 +143,13 @@ class App extends Component {
                   onDismiss={this.onDismiss}
                />
             }
-            <div className="page__center">
+            <div className="page__button">
             <Button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
-                  More
-               </Button>
+                  View more
+            </Button>
             </div>
          </div>
+      
       );
    }
 }

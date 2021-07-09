@@ -1,55 +1,134 @@
 .table {
-    margin: 20px 0;
+  margin-top: 20px;
 }
 
-.table-header {
-    display: flex;
-    line-height: 24px;
-    font-size: 16px;
-    padding: 0 10px;
-    justify-content: space-between;
+.table .table__row {
+  width: calc(90% - 20px);
+  background-color: white;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-.table-empty {
-    margin: 200px;
-    text-align: center;
-    font-size: 16px;
+.table .table__row span {
+  line-height: 30px;
+  font-size: 16px;
 }
 
-.table-row {
-    display: flex;
-    line-height: 24px;
-    white-space: nowrap;
-    margin: 10px 0;
-    padding: 10px;
-    background: #ffffff;
-    border: 1px solid #e3e3e3;
+.table .table__row span .MuiSvgIcon-root {
+  fill: #848c94;
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 1.5em;
 }
 
-.table-header > span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 5px;
+.table .table__row .table__row__link {
+  margin-bottom: 10px;
 }
 
-.table-row > span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 5px;
+.table .table__row .table__row__link a {
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.button-inline {
-    border-width: 0;
-    background: transparent;
-    color: inherit;
-    text-align: inherit;
-    -webkit-font-smoothing: inherit;
-    padding: 0;
-    font-size: inherit;
-    cursor: pointer;
+.table .table__row .table__row__author {
+  font-size: 14px;
+  color: #32383e;
+  font-weight: 500;
 }
 
-.button-active {
-    border-radius: 0;
-    border-bottom: 1px solid #38BB6C;
+.table .table__row .table__row__comment {
+  color: #484f56;
 }
+
+.table .table__row .table__row__comment span {
+  color: #32383e;
+  font-weight: 500;
+}
+
+.table .table__row .table__row__points {
+  color: #484f56;
+}
+
+.table .table__row .table__row__points span {
+  color: #32383e;
+  font-weight: 500;
+}
+
+.table .table__row .table__row__buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 20px;
+  text-align: right;
+}
+
+.table .table__row .table__row__buttons a {
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  background-color: #22262b;
+  text-align: center;
+  border-radius: 5px;
+  color: #f6f7f8;
+}
+
+.table .table__row .table__row__buttons button {
+  border: unset;
+  color: #ff6680;
+}
+
+.table .table__row .table__row__buttons button:hover {
+  background-color: #ff6680;
+  color: #f6f7f8;
+}
+
+@media (min-width: 550px) {
+  .table {
+    position: relative;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 5px;
+    margin-bottom: 20px;
+  }
+  .table .table__row {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+    min-height: 230px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    margin: unset;
+  }
+}
+/*# sourceMappingURL=index.css.map */

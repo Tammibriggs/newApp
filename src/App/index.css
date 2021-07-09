@@ -1,6 +1,41 @@
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
 .page {
-  margin: 20px;
-}
-.page__center {
   text-align: center;
+  margin-bottom: 20px;
 }
+
+.page .page__intro-search {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 450px;
+      grid-template-rows: 450px;
+  grid-gap: 20px;
+}
+
+.page .page__button button {
+  -webkit-box-shadow: 0 0 4px #ced4da;
+          box-shadow: 0 0 4px #ced4da;
+}
+
+.page .page__button button:hover {
+  background-color: #e8ebee;
+}
+
+@media (min-width: 550px) {
+  .page .page__intro-search {
+    -ms-grid-rows: 350px;
+        grid-template-rows: 350px;
+  }
+  .page .page__error {
+    margin-top: 40px;
+  }
+  .page .page__button button {
+    width: 20%;
+  }
+}
+/*# sourceMappingURL=index.css.map */

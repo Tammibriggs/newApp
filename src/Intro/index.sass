@@ -1,0 +1,61 @@
+@import "../variables"
+@import "../mixins"
+
+.intro
+   width: 100%
+   background-color: $lightGray3
+   @include flex(center, column)
+   
+   img
+      width: 100%
+      height: 200px
+
+   .intro__description
+      text-align: center
+      margin-top: 20px
+
+      h1
+         color: $darkGray1
+      
+      span
+         max-width: 300px
+         color: $darkGray3
+         margin: 0 auto
+         display: block
+         font-size: 18px
+
+@media ( min-width: 550px)
+
+   .intro
+      justify-content: unset
+      height: 500px
+
+      .wrapper--mod
+         @include flex(space-around, row-reverse)
+         max-width: 800px
+         margin-top: 12vh
+
+         img
+            width: unset
+            height: 230px
+
+         
+         .intro__description
+            text-align: left
+            
+            h1
+               margin-bottom: 10px
+               font-size: 36px
+        
+
+   @media (min-width: 768px)
+
+     .intro
+        .intro__description 
+            h1
+              font-size: 36px 
+
+            span 
+               font-size: 20px
+
+      

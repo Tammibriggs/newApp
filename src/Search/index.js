@@ -1,3 +1,4 @@
+import "./index.css";
 
 const Search = ({
     value,
@@ -5,13 +6,14 @@ const Search = ({
     onSubmit,
     children
  }) =>
+   
     <form onSubmit={onSubmit}>
        <input
        type="text"
        value={value}
        onChange={onChange}
     />
-       <button type="submit">
+       <button type="submit" className="button">
           {children}
        </button>
     </form>
